@@ -21,10 +21,15 @@ img{
     width: 30px;
 }
 
+.searching{ 
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
 .bar{
     background-color: #fafafa;
     border: solid 1px #dbdbdb;
-    height: 15px;
+    height: 17px;
     width: 40px;
     border: 1px solid grey;
     color: #999;
@@ -34,8 +39,20 @@ img{
     width: 215px; 
     min-width: 125px;
     height: 28px;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar:hover{
+    cursor: pointer;
+    background-color: #e2e2e2;
+
 }
 
 .icons{
     width: 40px;
 }
+

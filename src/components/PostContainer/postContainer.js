@@ -1,5 +1,6 @@
 import React from 'react';
 import './postContainer.css';
+// import moment from 'moment';
 
 function postContainer (props) { 
 
@@ -20,6 +21,7 @@ function postContainer (props) {
             
                                 </div>
                             ))}
+                            {/* <h2>{moment(post.timestamp).format('dddd MMM D, YYYY')}</h2> */}
                         </div>
                     </div>
 
