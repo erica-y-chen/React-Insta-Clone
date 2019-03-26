@@ -16,6 +16,7 @@ class App extends React.Component {
       imageUrl: '',
       comments: [],
       likes: {},
+      timestamp: '',
     };
     // console.log(dummydata);
   }
@@ -32,6 +33,7 @@ class App extends React.Component {
         imageUrl = {this.state.imageUrl}
         comments = {this.state.comments}
         likes = {this.state.likes}
+        timestamp = {this.timestamp}
         />
       </div> 
     );

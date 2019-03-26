@@ -1,8 +1,8 @@
 import React from 'react';
 import './searchBar.css';
 import Logo from './logo.png'
-import heart from '../../img/heart.png'
-import person from '../../img/person.png'
+import heart from '../../img/heart_outline_thin.svg'
+import person from '../../img/people.svg'
 import search from '../../img/search.png'
 
 
