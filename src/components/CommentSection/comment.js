@@ -11,9 +11,9 @@ const comment = props => {
           type = "text"
           value = {props.comment}
           // username = "eyufanchen"
-          name="newComment"
+          name={props.id}
           placeholder= "Add a comment..."
-          onChange={props.handleChanges}
+          onChange={(event) => props.handleChanges(event, props.id)}
           />
           {/* onKeyPress= {props.newComment} */}
       </form>

@@ -7,11 +7,53 @@ import commentIcon from '../../img/comment.svg'
 import Comment from '../CommentSection/comment'
 
 
-function postContainer (props) { 
-    const getTimeDifference = p => moment(p.timestamp, 'MMMM Do YYYY, HH:mm:ss A').fromNow()
+class postContainer extends React.Component {
+    
+    constructor(props) {
+        super(props);
+
+        this.state= {
+            text: '',
+            comments: [],
+            posts: props.posts,
+        }
+    }
+
+    handleChanges = (event, pid) => {
+       console.log(event, pid); 
+        this.setState({
+          [event.target.name]: event.target.value,
+          comments: event.target.value,
+        });
+      };
+  
+      newComment = (e, cid) =>{
+          e.preventDefault();
+          console.log(cid);
+          console.log("new comment");
+          // const newComment = {
+          //   // id: (Math.random()), 
+          //   text: this.state[cid], username: "eyufanchen"};
+          // console.log(newComment);
+          for (let i=0; i<this.state.posts.length; i++){
+            if(cid==this.state.posts.id){
+
+                this.setState({
+                    comments: [...this.state.comments,e]
+                })
+            }
+          }
+            // if (event.key === 'Enter') {
+            //   props.newComment
+            // }
+        
+        };
+
+    render() {
+        const getTimeDifference = p => moment(p.timestamp, 'MMMM Do YYYY, HH:mm:ss A').fromNow()
     return (
         <div className="posts">
-            {props.post.map((post, pid) => (
+            {this.state.posts.map((post, pid) => (
                     <div className="post" key={`post-${pid}`}>
                         {/* header */}
                         <div className="header">
@@ -44,10 +86,10 @@ function postContainer (props) {
 
                         {/* add a new comment */}
                         <Comment
-                        comment={props.comments}
                         id = {post.id}
-                        handleChanges={props.handleChanges}
-                        newComment={props.newComment}
+                        comment = {this.state[post.id]}
+                        handleChanges={this.handleChanges}
+                        newComment={this.newComment}
                         />
 
                         </div>
@@ -58,6 +100,7 @@ function postContainer (props) {
         
 
     )
+}
 }
 
     // postContainer.propTypes = {
