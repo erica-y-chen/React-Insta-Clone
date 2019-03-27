@@ -1,48 +1,41 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar/searchBar';
-import PostContainer from './components/PostContainer/postContainer'
+import Header from './components/Header/Header';
+import Body from './components/Body/Body'
 import DummyData from './dummy-data'
-import Comment from './components/CommentSection/comment'
+// import Comment from './components/CommentSection/comment'
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state={
-      dummydata: DummyData,
-      a: '',
-      b: '',
-      c: '',
-    };
-    // console.log(dummydata);
+
+
+  // Method filtering through data array and returning array of just usernames
+  getUsernames = data => {
+    let usernames= []; 
+    {data.map((object) => {
+      usernames.push(object.username)
+    })}
+
+    console.log(usernames)
+    return usernames;
+    
   }
 
 
-      
+  render() {   
+    this.getUsernames(DummyData) 
 
-  render() {  
-    // console.log(inputField);
-    // let formComponent;
-
-    // if(inputField){
-    //   formComponent=
-    //     <Comment
-    //       comment={this.state.comment}
-    //       handleChanges={this.handleChanges}
-    //       newComment={this.newComment}
-    //     />
-    // } else{
-    //   formComponent=null;
-    // }
-
-    
     return (
       <div className="App"> 
-        <SearchBar />
-        <PostContainer  
-        posts= {this.state.dummydata}
+        {/* Header containing search bar, logo, and icons --> passing in filtered array of usernames */}
+        <Header 
+        usernames={this.getUsernames(DummyData)}
+        />
+
+        {/* containing search bar, logo, and icons --> passing in filtered array of usernames */}
+        <Body 
+        posts = {DummyData}
         />
       </div> 
-    );
+    )
   }
 } 
 

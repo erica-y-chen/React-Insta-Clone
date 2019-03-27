@@ -19,17 +19,6 @@ class commentContainer extends React.Component {
       };
   
   
-    // handleCommentSubmit = e => {
-    //   e.preventDefault();
-    //   const newComment = { text: this.state.comment, username: 'ryanhamblin' };
-    //   const comments = this.state.comments.slice();
-    //   comments.push(newComment);
-    //   this.setState({ comments, comment: '' });
-    //   setTimeout(() => {
-    //     this.setComments();
-    //   }, 500);
-    // };
-  
       newComment = e =>{
           e.preventDefault();
           console.log("new comment");
@@ -47,7 +36,7 @@ class commentContainer extends React.Component {
         
         };
     }
-    
+
         render() {
             return (
               <div>
