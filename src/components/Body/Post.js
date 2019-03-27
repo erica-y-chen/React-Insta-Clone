@@ -19,6 +19,7 @@ class Post extends React.Component {
             comments: props.comments, 
             newComment: '',
             timestamp: props.timestamp,
+            toggled: false,
         }
     }
 
@@ -42,8 +43,41 @@ class Post extends React.Component {
 
     }
 
+    //method increasing likes when user presses heart icon
+    increaseLikes = (e) => {
+        e.preventDefault();
+        
+        this.setState({
+            likes: this.state.likes + 1,
+        })
+    }
+
+    addComment = () => {
+        this.setState({
+            toggled: !this.state.toggled
+        })
+
+        console.log(this.state.toggled)
+    }
+
+
     render () {
+        {/* MOMENT.JS */}
         const getTimeDifference = p => moment(p, 'MMMM Do YYYY, HH:mm:ss A').fromNow()
+
+        {/* TOGGLING COMMENT VISIBLE AND INVISIBLE */}
+        const inputComment = this.state.toggled; 
+        let form; 
+        if(inputComment){
+            form=
+            <CommentForm 
+            newComment = {this.state.newComment}
+            addNewComment = {this.addNewComment}
+            commentText = {this.commentText}    
+            />
+        } else{
+            form=null;
+        }
 
         return(
             <div className = "post">
@@ -52,8 +86,8 @@ class Post extends React.Component {
                     
                 {/* POST DETAILS */}
                     <div className="userButtons">
-                        <img className="likeButton" src={heartIcon}></img>
-                        <img className="commentButton" src={commentIcon}></img>
+                        <img className="likeButton" src={heartIcon} onClick={this.increaseLikes}></img>
+                        <img className="commentButton" src={commentIcon} onClick={this.addComment}></img>
                     </div>
                     <div className="likes"><h2>{this.state.likes} likes</h2></div>
 
@@ -71,11 +105,7 @@ class Post extends React.Component {
                     <div className="time">{getTimeDifference(this.state.timestamp)}</div>
 
                  {/* COMMENT FORM */}  
-                    <CommentForm 
-                        newComment = {this.state.newComment}
-                        addNewComment = {this.addNewComment}
-                        commentText = {this.commentText}    
-                    />
+                    {form}
 
           
         </div>
