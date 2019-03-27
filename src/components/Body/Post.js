@@ -4,6 +4,7 @@ import './Body.css';
 import Comment from '../CommentSection/comment'
 import CommentForm from '../CommentSection/CommentForm'
 import heartIcon from '../../img/heart_outline_thick.svg'
+import redHeart from '../../img/red_heart.svg'
 import commentIcon from '../../img/comment.svg'
 // import User from './User'
 import moment from 'moment';
@@ -20,6 +21,8 @@ class Post extends React.Component {
             newComment: '',
             timestamp: props.timestamp,
             toggled: false,
+            liked: false,
+
         }
     }
 
@@ -46,17 +49,18 @@ class Post extends React.Component {
     //method increasing likes when user presses heart icon
     increaseLikes = (e) => {
         e.preventDefault();
-        const liked=!this.state.toggled; 
+        const liked=!this.state.liked; 
 
         if(liked){
             this.setState({
                 likes: this.state.likes + 1,
-                toggled: !this.state.toggled,
+                liked: !this.state.liked,
+                
             })
         } else{
             this.setState({
                 likes: this.state.likes -1, 
-                toggled: !this.state.toggled,
+                liked: !this.state.liked,
             })
         }
     }
@@ -95,7 +99,7 @@ class Post extends React.Component {
                     
                 {/* POST DETAILS */}
                     <div className="userButtons">
-                        <img className="likeButton" src={heartIcon} onClick={this.increaseLikes}></img>
+                        <img className="likeButton" src={!this.state.liked ? heartIcon : redHeart} onClick={this.increaseLikes}></img>
                         <img className="commentButton" src={commentIcon} onClick={this.addComment}></img>
                     </div>
                     <div className="likes"><h2>{this.state.likes} likes</h2></div>
