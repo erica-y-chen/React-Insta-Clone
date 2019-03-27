@@ -36,7 +36,7 @@ class Post extends React.Component {
     addNewComment = (e) => {
         e.preventDefault();
         const postNew = {
-            text: this.state.newComment, username: "eyufanchen"
+            text: this.state.newComment, username: (localStorage.getItem("username"))
         };
         this.setState({
             comments: [...this.state.comments, postNew],

@@ -5,7 +5,12 @@ import Body from './components/Body/Body'
 import DummyData from './dummy-data'
 
 class PostContainer extends React.Component {
-
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     username: props.username,
+  //   }
+  // }
 
   // Method filtering through data array and returning array of just usernames
   getUsernames = data => {
@@ -32,6 +37,7 @@ class PostContainer extends React.Component {
         {/* containing search bar, logo, and icons --> passing in filtered array of usernames */}
         <Body 
         posts = {DummyData}
+       
         />
       </div> 
     )

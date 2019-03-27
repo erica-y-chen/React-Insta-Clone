@@ -33,7 +33,9 @@ class extends React.Component {
 
     render() {       
         if (localStorage.getItem('isLoggedIn')) {
-        return <PostContainer />
+        return <PostContainer 
+            // username = {this.username}
+            />
         } else {
             return <LoginPage 
             login = {this.login}
