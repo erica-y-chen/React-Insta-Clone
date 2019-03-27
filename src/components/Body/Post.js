@@ -46,10 +46,19 @@ class Post extends React.Component {
     //method increasing likes when user presses heart icon
     increaseLikes = (e) => {
         e.preventDefault();
-        
-        this.setState({
-            likes: this.state.likes + 1,
-        })
+        const liked=!this.state.toggled; 
+
+        if(liked){
+            this.setState({
+                likes: this.state.likes + 1,
+                toggled: !this.state.toggled,
+            })
+        } else{
+            this.setState({
+                likes: this.state.likes -1, 
+                toggled: !this.state.toggled,
+            })
+        }
     }
 
     addComment = () => {
