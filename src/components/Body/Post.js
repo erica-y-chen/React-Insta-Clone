@@ -6,7 +6,7 @@ import CommentForm from '../CommentSection/CommentForm'
 import heartIcon from '../../img/heart_outline_thick.svg'
 import redHeart from '../../img/red_heart.svg'
 import commentIcon from '../../img/comment.svg'
-// import User from './User'
+import User from './User'
 import moment from 'moment';
 
 
@@ -22,7 +22,6 @@ class Post extends React.Component {
             timestamp: props.timestamp,
             toggled: false,
             liked: false,
-
         }
     }
 
@@ -94,7 +93,10 @@ class Post extends React.Component {
 
         return(
             <div className = "post">
-                    {/* <User /> */}
+                    <User 
+                        thumbnail = {this.props.thumbnail}
+                        username = {this.props.username}
+                    />
                     <img className ="postImg" src={this.state.imageUrl} />
                     
                 {/* POST DETAILS */}
