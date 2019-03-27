@@ -10,7 +10,6 @@ const newComment = props => {
                 <input 
                     type = "text"
                     value = {props.newComment}
-
                     placeholder="Add a comment..."
                     onChange={(e) => props.commentText(e)}
                 />
@@ -20,3 +19,5 @@ const newComment = props => {
 }
 
 export default newComment;
+
+

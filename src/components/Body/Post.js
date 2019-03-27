@@ -64,6 +64,7 @@ class Post extends React.Component {
         }
     }
 
+    //method setting the toggle state on comment to show it on or off 
     addComment = () => {
         this.setState({
             toggled: !this.state.toggled
@@ -101,6 +102,7 @@ class Post extends React.Component {
                     
                 {/* POST DETAILS */}
                     <div className="userButtons">
+                        {/* using a ternary function to toggle the src of the heart */}
                         <img className="likeButton" src={!this.state.liked ? heartIcon : redHeart} onClick={this.increaseLikes}></img>
                         <img className="commentButton" src={commentIcon} onClick={this.addComment}></img>
                     </div>

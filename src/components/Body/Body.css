@@ -9,12 +9,6 @@
 
 }
 
-.post:hover{ 
-    width: 105%;
-    height: 105%;
-    max-width: 610px;
-}
-
 .userButtons{
     height: 20px;
     display: flex;
