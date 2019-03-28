@@ -8,8 +8,22 @@ import redHeart from '../../img/red_heart.svg'
 import commentIcon from '../../img/comment.svg'
 import User from './User'
 import moment from 'moment';
+import styled, {css} from 'styled-components'
 
+export const PostSingle = styled.div`
+    max-width: 600px;
+    background-color: white;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 3px;
+    box-shadow: 0 0 30px rgb(233, 233, 233);
+`
 
+export const PostImg = styled.img`
+    width: 100%;
+    height: auto;
+`
 class Post extends React.Component {
 
     constructor(props) {
@@ -93,12 +107,12 @@ class Post extends React.Component {
         }
 
         return(
-            <div className = "post">
+            <PostSingle>
                     <User 
                         thumbnail = {this.props.thumbnail}
                         username = {this.props.username}
                     />
-                    <img className ="postImg" src={this.state.imageUrl} />
+                    <PostImg className ="postImg" src={this.state.imageUrl} />
                     
                 {/* POST DETAILS */}
                     <div className="userButtons">
@@ -125,7 +139,7 @@ class Post extends React.Component {
                     {form}
 
           
-        </div>
+        </PostSingle>
         )
     }
 }

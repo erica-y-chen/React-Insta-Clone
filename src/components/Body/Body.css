@@ -1,4 +1,4 @@
-.post { 
+/* .post { 
     max-width: 600px;
     background-color: white;
     margin: 0 auto;
@@ -7,7 +7,7 @@
     border-radius: 3px;
     box-shadow: 0 0 30px rgb(233, 233, 233);
 
-}
+} */
 
 .userButtons{
     height: 20px;
@@ -35,23 +35,7 @@
     cursor: pointer;
 }
 
-.header{ 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0.5rem 1rem;
-}
 
-.thumbnail{
-    border-radius: 100px;
-    margin-right: 5px;
-}
-
-.username{
-    margin-left: 5px;
-    font-size: 14px;
-    font-weight: bold;
-}
 
 .likes{
     text-align: left;

@@ -14,7 +14,6 @@ class Body extends React.Component {
         }
 
 
-
         render() {
             return (
                 <div className = "posts">
@@ -37,7 +36,5 @@ class Body extends React.Component {
 }
 
 
+
 export default Body;
-
-
-
