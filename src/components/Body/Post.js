@@ -24,6 +24,55 @@ export const PostImg = styled.img`
     width: 100%;
     height: auto;
 `
+
+export const Time = styled.div`
+    text-align: left;
+    margin-left: 17px;
+    font-size: 12px;
+    color: grey;
+    margin-top: 0px;
+    padding-bottom: 12px;
+    font-weight: 500;
+`
+
+export const UserButtons = styled.div`
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 14px;
+    align-items: center;
+    padding-top: 10px;
+`
+
+export const LikeButton = styled.img`
+    height: 30px;
+    width: 30px;
+    margin-right: 7px;
+
+    &:hover {
+    cursor: pointer;
+    }
+`
+
+export const CommentButton = styled.img`
+    height: 30px;
+    width: 30px;
+    margin-top: 3px;
+
+    &:hover {
+        cursor: pointer;
+        }
+`
+export const Likes = styled.div`
+    text-align: left;
+    margin-top: 5px;
+`
+
+// export const Comment = styled.div`
+//     text-align: left;
+//     margin-top: 5px;
+// `
+
 class Post extends React.Component {
 
     constructor(props) {
@@ -115,15 +164,15 @@ class Post extends React.Component {
                     <PostImg className ="postImg" src={this.state.imageUrl} />
                     
                 {/* POST DETAILS */}
-                    <div className="userButtons">
+                    <UserButtons>
                         {/* using a ternary function to toggle the src of the heart */}
-                        <img className="likeButton" src={!this.state.liked ? heartIcon : redHeart} onClick={this.increaseLikes}></img>
-                        <img className="commentButton" src={commentIcon} onClick={this.addComment}></img>
-                    </div>
-                    <div className="likes"><h2>{this.state.likes} likes</h2></div>
+                        <LikeButton src={!this.state.liked ? heartIcon : redHeart} onClick={this.increaseLikes}></LikeButton>
+                        <CommentButton src={commentIcon} onClick={this.addComment}></CommentButton>
+                    </UserButtons>
+                    <Likes><h2>{this.state.likes} likes</h2></Likes>
 
                 {/* COMMENT SECTION */}
-                    <div className="comment">
+                    <div>
                         {this.state.comments.map(c => 
                             <Comment 
                                 text = {c.text}
@@ -133,7 +182,7 @@ class Post extends React.Component {
                     </div>
 
                  {/* TIME STAMP */}   
-                    <div className="time">{getTimeDifference(this.state.timestamp)}</div>
+                    <Time>{getTimeDifference(this.state.timestamp)}</Time>
 
                  {/* COMMENT FORM */}  
                     {form}

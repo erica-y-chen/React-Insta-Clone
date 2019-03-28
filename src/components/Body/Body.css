@@ -9,27 +9,27 @@
 
 } */
 
-.userButtons{
+/* .userButtons{
     height: 20px;
     display: flex;
     flex-direction: row;
     margin-left: 14px;
     align-items: center;
     padding-top: 10px;
-}
+} */
 
 
-.likeButton{
+/* .likeButton{
     margin-right: 7px;
-}
+} */
 
 .likeButton:hover{
     cursor: pointer;
 }
 
-.commentButton{
+/* .commentButton{
     margin-top: 3px;
-}
+} */
 
 .commentButton:hover{
     cursor: pointer;
@@ -56,12 +56,12 @@ span{
     margin-top: 2rem;
 }
 
-.postImg{
+/* .postImg{
     width: 100%;
     height: auto;
-}
+} */
 
-.time{
+/* .time{
     text-align: left;
     margin-left: 17px;
     font-size: 12px;
@@ -69,4 +69,4 @@ span{
     margin-top: 0px;
     padding-bottom: 12px;
     font-weight: 500;
-}
+} */
