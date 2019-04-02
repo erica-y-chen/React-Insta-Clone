@@ -1,41 +1,44 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar/searchBar';
-import PostContainer from './components/PostContainer/postContainer'
+import Header from './components/Header/Header';
+import Body from './components/Body/Body'
 import DummyData from './dummy-data'
+import PostContainer from './PostContainer'
+import withAuthentication from './components/authentication/withAuthentication'
+import LoginPage from './components/LoginPage/LoginPage'
 
+// import Comment from './components/CommentSection/comment'
 class App extends React.Component {
   constructor() {
-    super();
-    this.state={
-      dummydata: DummyData,
-      thumbnailUrl: '',
-      username: '', 
-      likes: '', 
-      timestamp: '',
-      imageUrl: '',
-      comments: [],
-      likes: {},
-    };
-    // console.log(dummydata);
+    super()
+    this.state = {
+      loggedIn: false,
+    }
   }
 
 
-  render() {  
+
+  render() {   
+  
+
     return (
       <div className="App"> 
-        <SearchBar />
-        <PostContainer  
-        post= {this.state.dummydata}
-        thumbnailUrl = {this.state.thumbnailUrl}
-        username = {this.state.username}
-        imageUrl = {this.state.imageUrl}
-        comments = {this.state.comments}
-        likes = {this.state.likes}
-        />
+        <ComponentFromWithAuthenticate/>
       </div> 
-    );
+    )
   }
-} 
+}
+ 
+const ComponentFromWithAuthenticate = withAuthentication(PostContainer)(LoginPage);
 
 export default App;
+
+
+
+
+
+// Inside of the class component that the inner function in withAuthenticate returns, we need to add a constructor to hold our state data.
+// On state we need a loggedIn boolean flag.
+// In componentDidMount we need to check localStorage to see if a user is logged in, and setState accordingly.
+// Inside of the render function we will check if a user is logged in from the state boolean flag
+// If a user is logged in we will return the <PostsPage />, else we will return the <LoginPage>
